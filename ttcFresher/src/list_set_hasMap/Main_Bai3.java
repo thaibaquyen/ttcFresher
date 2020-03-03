@@ -74,12 +74,13 @@ public class Main_Bai3 {
 		});
 	}
 
-	public static void distinct() {
+	public static void lisngay() {
 		datecreate = new ArrayList<>();
 		for (Bill bill : lisbill) {
 			datecreate.add(bill.getDate());
 		}
 		System.out.println("danh sach ngay la");
+		datecreate.stream().distinct();
 		for (String str : datecreate) {
 			System.out.println(str);
 		}
@@ -106,14 +107,14 @@ public class Main_Bai3 {
 					Date ngay1 = new SimpleDateFormat("yyyy-MM-dd").parse(lisbill.get(k).getDate());
 					Date ngay2 = new SimpleDateFormat("yyyy-MM-dd").parse(lisbill.get(i).getDate());
 //					System.out.println("n1"+ngay1+" n2  "+ngay2);
-					if(lisbill.get(k).equals(lisbill.get(i))) {
+					if(lisbill.get(k).getDate().equals(lisbill.get(i).getDate())) {
 						lis.add(lisbill.get(i));
-						lisbill.remove(i);
 					}
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
 			}
+			lis.stream().distinct();
 			arrliss.add((ArrayList<Bill>) lis);
 		}
 		
