@@ -57,6 +57,7 @@ public class Main_bai1 {
 		}
 		return tong;
 	}
+	// bài 2
 	private static void sort() {
 		Collections.sort(arr);
 		System.out.println("mang sau khi sap xep ");

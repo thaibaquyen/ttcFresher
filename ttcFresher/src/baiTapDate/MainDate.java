@@ -12,9 +12,10 @@ public class MainDate {
 //		bai1(datestring);
 //		sosanhdate("1111-03-05","1111-03-06");
 //		khoangcach("1111-03-05","1111-04-06");
-		bai5("2020/03/03 22:22:22");
+//		bai5("2020/03/03 22:22:22");
+		bai7("2020/03/03 22:22:22");
 	}
-	
+	// bài 1
 	public static void bai1(String str) {
 		try {
 			Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(str);
@@ -24,7 +25,7 @@ public class MainDate {
 			e.printStackTrace();
 		}
 	}
-	
+	// bài 3
 	public static void sosanhdate(String date1, String date2) {
 		SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -44,7 +45,7 @@ public class MainDate {
 		}
 		
 	}
-	
+	// bài 4
 	private static void khoangcach(String date1, String date2) {
 		SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -56,17 +57,30 @@ public class MainDate {
 			e.printStackTrace();
 		}
 	}
-	
+	// bài 5
 	private static void bai5(String stringdate) {
 		SimpleDateFormat sp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		try {
 			Date date = sp.parse(stringdate);
 			Timestamp Timestamp = new Timestamp(date.getTime());
 			System.out.println("Timestap :  "+Timestamp);
-			
 			Date date2 = new Date(Timestamp.getTime());
-			
 			System.out.println("day :  "+date2);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	// bài 7
+	private static void bai7(String stringdate) {
+		SimpleDateFormat sp1 = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		SimpleDateFormat sp2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sp3 = new SimpleDateFormat("MMM yyyy,dd HH:mm:ss");
+		
+		try {
+			Date date1 = sp1.parse(stringdate);
+			String date2 = sp2.format(date1);
+			String date3 = sp3.format(date1);
+			System.out.println(date1 + "\n kiểu2: " + date2 + "\n  kiểu3 : " + date3);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

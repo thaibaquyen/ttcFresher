@@ -23,7 +23,7 @@ public class Bai1 {
 		//lischuoicon(chuoi);
 		System.out.println(result("i am fresher is fresher","fresher","pro"));
 	}
-// lấy danh sách xuất hiện của 1 ký tự
+// bai1 lấy danh sách xuất hiện của 1 ký tự
 	private static void getliskytu(String chuoi, String kytu) {
 		for (int i = 0; i < chuoi.length(); i++) {
 			if (kytu.equals(String.valueOf(chuoi.charAt(i)))) {
@@ -35,7 +35,7 @@ public class Bai1 {
 			System.out.println("vi tri la: " + j);
 		}
 	}
-// lấy danh sách xuất hiện của 1 chuỗi con
+// bai1 lấy danh sách xuất hiện của 1 chuỗi con
 	private static void getlistcon(String chuoi, String chuoicon) {
 		int tall = chuoicon.length();
 		int trunggian = 0;
@@ -73,7 +73,7 @@ public class Bai1 {
 		}
 		return dem;
 	}
-// tìm chuỗi con xuất hiện nhiều nhất
+// bài 2 tìm chuỗi con xuất hiện nhiều nhất
 	private static void timmaxcount(String chuoi) {
 		int max = 0;
 		String chuoimax = "";
@@ -101,7 +101,7 @@ public class Bai1 {
 		}
 	}
 	
-	//chuyển list -> string
+	//bài 3 chuyển list -> string
 	
 	public static String encodetring(List<String> lis){
 		String str = "";
@@ -110,7 +110,7 @@ public class Bai1 {
 		}
 		return str;
 	}
-	//chuyển string -> list
+	// bài 4 chuyển string -> list
 	
 	public static void decodetring(String str){
 		List<String> lis = new ArrayList<>();
