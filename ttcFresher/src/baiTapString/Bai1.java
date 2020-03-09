@@ -1,7 +1,11 @@
 package baiTapString;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Bai1 {
 
@@ -19,9 +23,9 @@ public class Bai1 {
 //		System.out.println(count(chuoi, chuoicon));
 //		getliskytu(chuoi, kytu);
 //		getlistcon(chuoi, chuoicon);
-//		 timmaxcount(chuoi);
-		//lischuoicon(chuoi);
-		System.out.println(result("i am fresher is fresher","fresher","pro"));
+		 timmaxcount(chuoi);
+//		lischuoicon(chuoi);
+//		System.out.println(result("i am fresher is fresher","fresher","pro"));
 	}
 // bai1 lấy danh sách xuất hiện của 1 ký tự
 	private static void getliskytu(String chuoi, String kytu) {
@@ -30,7 +34,7 @@ public class Bai1 {
 				liskytu.add(i);
 			}
 		}
-
+		// in ra
 		for (Integer j : liskytu) {
 			System.out.println("vi tri la: " + j);
 		}
@@ -51,12 +55,12 @@ public class Bai1 {
 				break;
 			}
 		}
-		
+		// in ra
 		for (Integer integer : lischuoicon) {
 			System.out.println(integer);
 		}
 	}
-// đếm số lần xuất hiện của chuỗi con
+// đếm số lần xuất hiện của chuỗi con (bài 2)
 	private static int count(String chuoi, String chuoicon) {
 		int tall = chuoicon.length();
 		int dem = 0;
@@ -76,29 +80,40 @@ public class Bai1 {
 // bài 2 tìm chuỗi con xuất hiện nhiều nhất
 	private static void timmaxcount(String chuoi) {
 		int max = 0;
-		String chuoimax = "";
-		for (int i = 0; i < chuoi.length() - 1; i++) {
-			for (int j = i + 1; j < chuoi.length(); j++) {
-				String chuoicon = chuoi.substring(i, j);
-				if (count(chuoi, chuoicon) > max) {
-					max = count(chuoi, chuoicon);
-					chuoimax = chuoicon;
-				}
-			}
+		String chuoiconmax = "";
+		ArrayList<String> arr = lischuoicon(chuoi);
+		HashMap<String, Integer> hamap = new HashMap<>();
+		for (String string : arr) {
+			hamap.put(string, count(chuoi, string));
 		}
-		System.out.println("chuoi max là " + chuoimax + " với sô lần " + max);
+		
+		 Set set = hamap.entrySet();
+	      // Lay mot iterator
+	      Iterator i = set.iterator();
+	      // Hien thi cac phan tu
+	      while(i.hasNext()) {
+	         Map.Entry me = (Map.Entry)i.next();
+	         if((Integer)me.getValue() > max) {
+	        	 max = (Integer)me.getValue();
+	        	 chuoiconmax = String.valueOf(me.getKey());
+	         }
+	         System.out.println("phần tử: "+me.getKey() + ": "+me.getValue()+" lần");
+	         }
+	      System.out.println("phần tử max là "+chuoiconmax+" : "+max+" lần");
 	}
 // trả về danh sách chuỗi con
-	private static void lischuoicon(String chuoi) {
+	private static ArrayList<String> lischuoicon(String chuoi) {
 		ArrayList<String> ar = new ArrayList<>();
 		for (int i = 0; i < chuoi.length() - 1; i++) {
 			for (int j = i + 1; j < chuoi.length(); j++) {
 				ar.add(chuoi.substring(i, j));
 			}
 		}
-		for (String string : ar) {
-			System.out.println(string);
-		}
+		ar.stream().distinct();
+//		for (String string : ar) {
+//			System.out.println(string);
+//		}
+		return ar;
 	}
 	
 	//bài 3 chuyển list -> string
